@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- SQL 关键字请使用大写字母, 表名, 属性名用小写 -->
-<mapper namespace="cn.basic.mapper.BasicMapper">
+<mapper namespace="cn.company.mapper.CompanyMapper">
 	<resultMap type="cn.basic.model.BasicData" id="resultMap">
 		<id column="id" property="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
 		<result column="category_name" property="categoryName" jdbcType="VARCHAR" />

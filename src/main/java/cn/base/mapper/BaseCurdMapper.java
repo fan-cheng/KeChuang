@@ -25,11 +25,12 @@ public interface BaseCurdMapper<T> {
     int deleteByPrimaryKey(T id);
 
     /**
-     * 根据主键删除记录
-     * @param id
+     * 根据主键修改记录
+     * @param entity
      * @return 返回受影响条数
      */
-    int updateByPrimaryKey(T id);
+    int updateByPrimaryKey(T entity);
+
 
     /**
      * 主键查询对象

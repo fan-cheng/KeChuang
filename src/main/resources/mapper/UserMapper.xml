@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 关键字请使用大写字母, 表名, 属性名用小写 -->
+<mapper namespace="cn.user.mapper.UserMapper">
+	<resultMap type="cn.user.model.UserModel" id="resultMap">
+
+		<id column="id" property="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="mobile" property="mobile" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+		<result column="department_id" property="departmentId" jdbcType="INTEGER" />
+		<result column="role_id" property="roleId" jdbcType="INTEGER" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+		<result column="department" property="department" jdbcType="VARCHAR" />
+		<result column="role_name" property="roleName" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="VARCHAR" />
+
+	</resultMap>
+
+
+	<sql id="insertList">
+		user_name,sex,mobile,password,department_id,role_id,remark,department,role_name,create_date
+	</sql>
+
+	<sql id="columnList">
+		id,user_name,sex,mobile,password,department_id,role_id,remark,department,role_name,create_date
+	</sql>
+
+	<!--新增用户-->
+	<insert id="insert" parameterType="cn.user.model.UserModel"
+			useGeneratedKeys="true" keyColumn="id">
+		INSERT INTO t_user(
+		<include refid="insertList" />
+		) VALUES (
+		#{userName}, #{sex},#{mobile},#{password},#{departmentId},#{roleId},#{remark},#{department},#{roleName},#{createDate})
+	</insert>
+
+	<!--修改用户信息-->
+	<update id="updateByPrimaryKey" parameterType="cn.user.model.UserModel">
+		UPDATE t_user
+		SET user_name = #{userName},sex = #{sex}, mobile = #{mobile},password=#{password},department_id=#{departmentId},
+		role_id=#{roleId},remark=#{remark},department=#{department},role_name=#{roleName},
+		create_date = #{createDate}
+		WHERE id=#{id}
+	</update>
+
+	<!--查询所有用户-->
+	<select id="selectByParams" resultMap="resultMap">
+
+        SELECT * FROM t_user WHERE 1=1
+
+	</select>
+
+	<!--删除用户-->
+	<delete id="deleteByPrimaryKey" parameterType="cn.user.model.UserModel" >
+		DELETE FROM t_user WHERE id=#{id}
+	</delete>
+
+	<!---修改密码-->
+	<update id="resetPassword" parameterType="cn.user.model.UserModel">
+		UPDATE t_user SET password=#{password} WHERE id=#{id}
+	</update>
+
+	<!--主键查找用户-->
+	<select id="selectByPrimaryKey" parameterType="cn.user.model.UserModel" resultMap="resultMap">
+		SELECT * FROM t_user WHERE id=#{id}
+	</select>
+</mapper>  

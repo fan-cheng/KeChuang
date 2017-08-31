@@ -24,11 +24,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T>{
 		return this.mapper.insert(entity);
 	}
 
-	public int delete(T entity) {
+	public int deleteById(T entity) {
 		return this.mapper.deleteByPrimaryKey(entity);
 	}
 
-	public int modify(T entity) {
+	public int modifyById(T entity) {
 		return this.mapper.updateByPrimaryKey(entity);
 	}
 

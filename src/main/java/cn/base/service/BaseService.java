@@ -21,14 +21,14 @@ public interface BaseService<T> {
      * @param entity 对象
      * @return
      */
-     int delete(T entity);
+     int deleteById(T entity);
 
     /**
      * 修改对象
      * @param entity
      * @return
      */
-     int modify(T entity);
+     int modifyById(T entity);
 
     /**
      * 根据id查找对象

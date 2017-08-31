@@ -29,15 +29,18 @@ public static Map<Integer, String> msgMap = new HashMap<Integer, String>();
 	public final static int CODE_1003 = 1003;
 	/**密码错误**/
 	public final static int CODE_1004 = 1004;
+	/**删除失败***/
+	public final static int CODE_1005 = 1005;
 	static{
 		msgMap.put(CODE_200,"成功");
 		msgMap.put(CODE_404, "请求错误");
 		
 		msgMap.put(CODE_1000, "请求参数错误");
 		msgMap.put(CODE_1001, "未查询到数据");
-		msgMap.put(CODE_1002, "更新数据失败");
+		msgMap.put(CODE_1002, "更新失败");
 		msgMap.put(CODE_1003, "用户不存在");
 		msgMap.put(CODE_1004, "密码错误");
+		msgMap.put(CODE_1005, "删除失败");
 		msgMap.put(400, "Bad Request!");
 		msgMap.put(401, "NotAuthorization");
 		msgMap.put(405, "Method Not Allowed");
